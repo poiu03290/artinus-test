@@ -33,8 +33,6 @@
 ## 🚀 빌드 및 실행 방법
 
 ```bash
-git clone [YOUR_GITHUB_REPO_URL]
-cd artinus-test
 npm install
 npm run dev
 ```
