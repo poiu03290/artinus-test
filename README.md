@@ -1,69 +1,46 @@
-# React + TypeScript + Vite
+# ARTINUS Frontend Developer 과제
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠️ 개발 환경
 
-Currently, two official plugins are available:
+- **Framework**: React 19 + Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Routing**: React Router v6
+- **배포**: Vercel
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 개발 내용
 
-## Expanding the ESLint configuration
+### 1. 상품 목록 페이지
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- DummyJson Products API 연동
+  - `GET https://dummyjson.com/products?skip=0&limit=20`
+- 카드 형태 UI (썸네일, 제목, 가격)
+- 무한 스크롤 (Intersection Observer)
+- 상품 클릭 시 상세 페이지 이동
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 2. 상품 상세 페이지
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- `GET https://dummyjson.com/products/{id}`로 상세 정보 조회
+- 썸네일, 제목, 가격, 태그, 설명, 브랜드, 평점, 재고, 카테고리 등 표시
+- 로딩 시 스켈레톤 UI 표시
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. 공통
+
+- 반응형 UI
+- 에러/로딩 처리
+- 빌드 최적화 및 정적 배포
+
+## 🚀 빌드 및 실행 방법
+
+```bash
+git clone [YOUR_GITHUB_REPO_URL]
+cd artinus-test
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 브라우저에서 `http://localhost:5173` 접속
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🌐 배포 URL
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [https://artinus-test.vercel.app/](https://artinus-test.vercel.app/)
